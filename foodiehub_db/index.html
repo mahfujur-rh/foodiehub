@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>FoodieHub | Online Food Ordering</title>
+
+        <link rel="stylesheet" href="style.css">
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    </head>
+
+    <body>
+
+        <!-- =====================================================
+         HEADER / NAVBAR
+        ====================================================== -->
+
+        <header class="header">
+
+            <!-- LOGO -->
+            <a href="index.html" class="logo">
+
+                <i class="fa-solid fa-utensils"></i>
+
+                Foodie<span>Hub</span>
+
+            </a>
+
+            <!-- NAVIGATION -->
+            <nav>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#menu">
+                    Menu
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+                <a href="index.html#contact">
+                    Contact
+                </a>
+
+                <!-- CART -->
+                <a href="cart.html" class="cart-link">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Cart
+
+                    <b id="cartCount">0</b>
+
+                </a>
+
+                <!-- =================================================
+                 GUEST USER
+                 Show when NOT logged in
+            ================================================== -->
+
+                <div id="guestAuth">
+
+                    <a href="login.html" class="auth-sign-in">
+                        Sign in
+                    </a>
+
+                    <a href="register.html" class="auth-sign-up">
+                        Sign up
+                    </a>
+
+                </div>
+
+                <!-- =================================================
+                 LOGGED IN USER
+                 Show after login/register
+            ================================================== -->
+
+                <div id="userAuth" style="display: none;">
+
+                    <div class="profile-menu">
+
+                        <!-- PROFILE ICON -->
+
+                        <button
+                            type="button"
+                            class="profile-btn"
+                            id="profileBtn"
+                            aria-label="Profile">
+
+                            <i class="fa-solid fa-user"></i>
+
+                        </button>
+
+                        <!-- PROFILE DROPDOWN -->
+
+                        <div
+                            class="profile-dropdown"
+                            id="profileDropdown">
+
+                            <!-- HOME -->
+
+                            <a href="index.html">
+
+                                <i class="fa-solid fa-house"></i>
+
+                                <span>
+                                    Home
+                                </span>
+
+                            </a>
+
+                            <!-- PROFILE -->
+
+                            <a href="profile.php">
+
+                                <i class="fa-regular fa-user"></i>
+
+                                <span>
+                                    Profile
+                                </span>
+
+                            </a>
+
+                            <!-- MY ORDERS -->
+
+                            <a href="my_orders.php">
+
+                                <i class="fa-solid fa-receipt"></i>
+
+                                <span>
+                                    My Orders
+                                </span>
+
+                            </a>
+
+                            <!-- LOGOUT -->
+
+                            <a href="logout.php">
+
+                                <i class="fa-solid fa-right-from-bracket"></i>
+
+                                <span>
+                                    Logout
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </nav>
+
+        </header>
+
+        <!-- =====================================================
+         HERO SECTION
+    ====================================================== -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+
+                    <i class="fa-solid fa-star"></i>
+
+                    WELCOME TO FOODIEHUB
+
+                </p>
+
+                <h1>
+
+                    Delicious food,
+
+                    <br>
+
+                    <span>
+                        delivered fast.
+                    </span>
+
+                </h1>
+
+                <p class="hero-text">
+
+                    Discover your favourite meals and order fresh,
+                    tasty food from the comfort of your home.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#menu" class="btn">
+
+                        Explore Menu
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                    <a
+                        href="my_orders.php"
+                        class="btn btn-outline">
+
+                        <i class="fa-solid fa-receipt"></i>
+
+                        My Orders
+
+                    </a>
+
+                </div>
+
+                <div class="hero-stats">
+
+                    <div>
+
+                        <strong>
+                            4.9/5
+                        </strong>
+
+                        <span>
+
+                            <i class="fa-solid fa-star"></i>
+
+                            Customer Rating
+
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            30 min
+                        </strong>
+
+                        <span>
+                            Average Delivery
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            100+
+                        </strong>
+
+                        <span>
+                            Food Items
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- HERO CARD -->
+
+            <div class="hero-card">
+
+                <div class="hero-food-icon">
+
+                    <i class="fa-solid fa-burger"></i>
+
+                </div>
+
+                <h3>
+                    Fresh & Delicious
+                </h3>
+
+                <p>
+                    Made with love, delivered with care.
+                </p>
+
+                <div class="hero-card-bottom">
+
+                    <span>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Fresh Ingredients
+
+                    </span>
+
+                    <span>
+
+                        <i class="fa-solid fa-truck-fast"></i>
+
+                        Fast Delivery
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================================
+         MENU SECTION
+    ====================================================== -->
+
+        <section
+            id="menu"
+            class="section">
+
+            <div class="section-title">
+
+                <p class="eyebrow">
+                    OUR MENU
+                </p>
+
+                <h2>
+
+                    Popular
+
+                    <span>
+                        Foods
+                    </span>
+
+                </h2>
+
+                <p>
+
+                    Explore our delicious selection and
+                    find something you'll love.
+
+                </p>
+
+            </div>
+
+            <!-- FILTERS -->
+
+            <div class="filters">
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        id="search"
+                        type="search"
+                        placeholder="Search food..."
+                        autocomplete="off">
+
+                </div>
+
+                <!-- CATEGORY FILTERS -->
+
+                <div class="category-filters">
+
+                    <button
+                        type="button"
+                        class="filter active"
+                        data-category="all">
+
+                        All
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter"
+                        data-category="Burger">
+
+                        <i class="fa-solid fa-burger"></i>
+
+                        Burgers
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter"
+                        data-category="Pizza">
+
+                        <i class="fa-solid fa-pizza-slice"></i>
+
+                        Pizza
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter"
+                        data-category="Rice">
+
+                        <i class="fa-solid fa-bowl-food"></i>
+
+                        Rice
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter"
+                        data-category="Drinks">
+
+                        <i class="fa-solid fa-glass-water"></i>
+
+                        Drinks
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter"
+                        data-category="Dessert">
+
+                        <i class="fa-solid fa-cake-candles"></i>
+
+                        Desserts
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- FOOD GRID -->
+
+            <div
+                id="foodGrid"
+                class="food-grid">
+
+            </div>
+
+            <!-- NO FOOD -->
+
+            <div
+                id="noFood"
+                class="no-food"
+                style="display: none;">
+
+                <i class="fa-solid fa-face-sad-tear"></i>
+
+                <h3>
+                    No food found
+                </h3>
+
+                <p>
+                    Try another search or category.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================================
+         ABOUT SECTION
+    ====================================================== -->
+
+        <section
+            class="about-section"
+            id="about">
+
+            <div class="about-content">
+
+                <p class="eyebrow">
+                    WHY FOODIEHUB?
+                </p>
+
+                <h2>
+
+                    Good food.
+
+                    <span>
+                        Good mood.
+                    </span>
+
+                </h2>
+
+                <p>
+
+                    FoodieHub makes ordering your favourite
+                    meals simple, fast and convenient.
+
+                    Browse our menu, add your favourite foods
+                    to your cart and place your order in just
+                    a few clicks.
+
+                </p>
+
+                <div class="about-points">
+
+                    <div>
+
+                        <i class="fa-solid fa-leaf"></i>
+
+                        <span>
+                            Fresh Ingredients
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <i class="fa-solid fa-truck-fast"></i>
+
+                        <span>
+                            Fast Delivery
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <i class="fa-solid fa-shield-heart"></i>
+
+                        <span>
+                            Quality Food
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <i class="fa-solid fa-headset"></i>
+
+                        <span>
+                            Friendly Support
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <a
+                    href="#menu"
+                    class="btn">
+
+                    Order Now
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+            <!-- ABOUT CARD -->
+
+            <div class="about-card">
+
+                <i class="fa-solid fa-utensils"></i>
+
+                <h3>
+                    Food made with passion
+                </h3>
+
+                <p>
+
+                    Every meal is prepared with quality
+                    ingredients and care.
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================================
+         CONTACT SECTION
+    ====================================================== -->
+
+        <section
+            class="contact-section"
+            id="contact">
+
+            <div class="contact-container">
+
+                <div class="section-title">
+
+                    <p class="eyebrow">
+                        GET IN TOUCH
+                    </p>
+
+                    <h2>
+
+                        Contact
+
+                        <span>
+                            FoodieHub
+                        </span>
+
+                    </h2>
+
+                    <p>
+
+                        Have a question? We'd love to hear from you.
+
+                    </p>
+
+                </div>
+
+                <!-- CONTACT CARDS -->
+
+                <div class="contact-cards">
+
+                    <!-- LOCATION -->
+
+                    <div class="contact-card">
+
+                        <div class="contact-icon">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                        </div>
+
+                        <h3>
+                            Location
+                        </h3>
+
+                        <p>
+                            Sylhet, Bangladesh
+                        </p>
+
+                    </div>
+
+                    <!-- PHONE -->
+
+                    <div class="contact-card">
+
+                        <div class="contact-icon">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                        </div>
+
+                        <h3>
+                            Phone
+                        </h3>
+
+                        <p>
+                            +880 1731-011605
+                        </p>
+
+                    </div>
+
+                    <!-- EMAIL -->
+
+                    <div class="contact-card">
+
+                        <div class="contact-icon">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                        </div>
+
+                        <h3>
+                            Email
+                        </h3>
+
+                        <p>
+                           mahfujurrahman1319@gmail.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+        <footer>
+
+            <div class="footer-content">
+
+                <!-- FOOTER BRAND -->
+
+                <div class="footer-brand">
+
+                    <a
+                        href="index.html"
+                        class="logo">
+
+                        <i class="fa-solid fa-utensils"></i>
+
+                        Foodie<span>Hub</span>
+
+                    </a>
+
+                    <p>
+                        Delicious food, delivered with care.
+                    </p>
+
+                    <div class="social-links">
+
+                        <a
+                            href="https://www.facebook.com/mahfujur.r.04"
+                            aria-label="Facebook">
+
+                            <i class="fa-brands fa-facebook-f"></i>
+
+                        </a>
+
+                        <a
+                            href="https://www.instagram.com/mahfujur.r.04"
+                            aria-label="Instagram">
+
+                            <i class="fa-brands fa-instagram"></i>
+
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/in/mahfujur-r/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="LinkedIn">
+
+                            <i class="fa-brands fa-linkedin-in"></i>
+
+                        </a>
+
+                        <a
+                            href="https://www.youtube.com/@mahfuzexplore"
+                            aria-label="YouTube">
+
+                            <i class="fa-brands fa-youtube"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- QUICK LINKS -->
+
+                <div class="footer-links">
+
+                    <h3>
+                        Quick Links
+                    </h3>
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="#menu">
+                        Menu
+                    </a>
+
+                    <a href="#about">
+                        About
+                    </a>
+
+                    <a href="#contact">
+                        Contact
+                    </a>
+
+                    <a href="cart.html">
+                        Cart
+                    </a>
+
+                </div>
+
+                <!-- ACCOUNT -->
+
+                <div class="footer-links">
+
+                    <h3>
+                        Account
+                    </h3>
+
+                    <a href="profile.php">
+                        Profile
+                    </a>
+
+                    <a href="my_orders.php">
+                        My Orders
+                    </a>
+
+                    <a href="logout.php">
+                        Logout
+                    </a>
+
+                </div>
+
+                <!-- FOOTER CONTACT -->
+
+                <div class="footer-contact">
+
+                    <h3>
+                        Contact
+                    </h3>
+
+                    <p>
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        Sylhet, Bangladesh
+
+                    </p>
+
+                    <p>
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        +880 1731-011605
+
+                    </p>
+
+                    <p>
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        mahfujurrahman1319@gmail.com
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- FOOTER BOTTOM -->
+
+            <div class="footer-bottom">
+
+                <p>
+
+                    © 2026 FoodieHub.
+                    All rights reserved.
+                    
+
+                </p>
+
+                <p>
+                  Designed & Developed with by Mahfujur Rahman
+                </p>
+
+            </div>
+
+        </footer>
+
+        <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+        <div
+            id="toast"
+            class="toast">
+
+        </div>
+
+        <!-- =====================================================
+         MAIN JAVASCRIPT
+    ====================================================== -->
+
+        <script src="script.js"></script>
+
+        <!-- =====================================================
+         LOGIN SESSION + PROFILE DROPDOWN
+    ====================================================== -->
+
+        <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const guestAuth =
+                document.getElementById("guestAuth");
+
+            const userAuth =
+                document.getElementById("userAuth");
+
+            const profileBtn =
+                document.getElementById("profileBtn");
+
+            const profileDropdown =
+                document.getElementById("profileDropdown");
+
+
+            /* =========================================
+               CHECK LOGIN SESSION
+            ========================================= */
+
+            fetch("check_session.php", {
+                method: "GET",
+                credentials: "include"
+            })
+
+            .then(function (response) {
+
+                return response.json();
+
+            })
+
+            .then(function (data) {
+
+                if (data.logged_in === true) {
+
+                    /* User logged in */
+
+                    guestAuth.style.display = "none";
+
+                    userAuth.style.display = "block";
+
+                }
+
+                else {
+
+                    /* User not logged in */
+
+                    guestAuth.style.display = "flex";
+
+                    userAuth.style.display = "none";
+
+                }
+
+            })
+
+            .catch(function (error) {
+
+                console.log(
+                    "Session check error:",
+                    error
+                );
+
+                guestAuth.style.display = "flex";
+
+                userAuth.style.display = "none";
+
+            });
+
+
+            /* =========================================
+               PROFILE BUTTON CLICK
+            ========================================= */
+
+            if (profileBtn) {
+
+                profileBtn.addEventListener(
+                    "click",
+                    function (event) {
+
+                        event.stopPropagation();
+
+                        profileDropdown.classList.toggle("show");
+
+                    }
+                );
+
+            }
+
+
+            /* =========================================
+               CLOSE DROPDOWN
+            ========================================= */
+
+            document.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        !event.target.closest(".profile-menu")
+                    ) {
+
+                        if (profileDropdown) {
+
+                            profileDropdown.classList.remove("show");
+
+                        }
+
+                    }
+
+                }
+            );
+
+        });
+
+    </script>
+
+    </body>
+
+</html>

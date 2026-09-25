@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | FoodieHub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <a class="logo" href="index.html">
+            🍔 Foodie<span>Hub</span>
+        </a>
+
+        <a href="cart.html">
+            Back to Cart
+        </a>
+
+    </header>
+
+
+    <!-- Checkout Form -->
+    <main class="form-page">
+
+        <form
+            class="form-box"
+            id="checkoutForm"
+        >
+
+            <h2>Checkout</h2>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Full name"
+                required
+            >
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Phone number"
+                required
+            >
+
+            <textarea
+                id="address"
+                placeholder="Delivery address"
+                rows="4"
+                required
+            ></textarea>
+
+            <h3>Payment Method</h3>
+
+            <p>
+                Cash on Delivery
+            </p>
+
+            <button
+                type="submit"
+                class="btn"
+            >
+                Place Order
+            </button>
+
+        </form>
+
+    </main>
+
+
+    <script>
+
+        const form = document.getElementById("checkoutForm");
+
+
+        form.addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+
+            const name = document.getElementById("name").value.trim();
+
+            const phone = document.getElementById("phone").value.trim();
+
+            const address = document.getElementById("address").value.trim();
+
+
+            // Get Cart Data
+            const cart = JSON.parse(
+                localStorage.getItem("foodieCart") || "[]"
+            );
+
+
+            // Check Empty Cart
+            if (cart.length === 0) {
+
+                alert("Your cart is empty!");
+
+                window.location.href = "cart.html";
+
+                return;
+
+            }
+
+
+            // Prepare Order Data
+            const orderData = {
+
+                name: name,
+
+                phone: phone,
+
+                address: address,
+
+                items: cart.map(item => ({
+
+                    id: item.id,
+
+                    qty: item.qty
+
+                }))
+
+            };
+
+
+            try {
+
+                const response = await fetch("place_order.php", {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type": "application/json"
+
+                    },
+
+                    body: JSON.stringify(orderData)
+
+                });
+
+
+                const result = await response.json();
+
+
+                if (result.success) {
+
+                    alert(
+                        "Order placed successfully!\\n" +
+                        "Order ID: " + result.order_id
+                    );
+
+
+                    // Clear Cart
+                    localStorage.removeItem("foodieCart");
+
+
+                    // Go to Home
+                    window.location.href = "index.html";
+
+                } else {
+
+                    alert(result.error || "Order failed!");
+
+                }
+
+            } catch (error) {
+
+                console.error(error);
+
+                alert(
+                    "Server error! Please check XAMPP and PHP files."
+                );
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

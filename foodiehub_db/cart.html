@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =====================================================
+         BASIC META INFORMATION
+    ====================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+
+    <!-- =====================================================
+         PAGE TITLE
+    ====================================================== -->
+
+    <title>Cart | FoodieHub</title>
+
+
+    <!-- =====================================================
+         MAIN STYLESHEET
+    ====================================================== -->
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER / NAVIGATION SECTION
+    ====================================================== -->
+
+    <header class="header">
+
+
+        <!-- -------------------- LOGO -------------------- -->
+
+        <a
+            class="logo"
+            href="index.html">
+
+            🍔 Foodie<span>Hub</span>
+
+        </a>
+
+
+        <!-- -------------------- CONTINUE SHOPPING LINK -------------------- -->
+
+        <a href="index.html">
+
+            Continue Shopping
+
+        </a>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CART MAIN SECTION
+    ====================================================== -->
+<main class="cart-page">
+
+    <!-- PAGE TITLE -->
+    <h1>Your Cart</h1>
+
+    <div class="cart-layout">
+
+        <!-- LEFT SIDE : CART ITEMS -->
+        <div class="cart-left">
+
+            <div id="cart">
+                <!-- Cart items will be loaded using JavaScript -->
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE : ORDER SUMMARY -->
+        <div class="order-summary">
+
+            <h2>Order Summary</h2>
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">৳0</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Delivery Fee</span>
+                <span>৳60</span>
+            </div>
+
+            <hr>
+
+            <div class="summary-row total-row">
+                <span>Total</span>
+                <span id="grandTotal">৳60</span>
+            </div>
+
+            <a href="checkout.html" class="checkout-btn">
+                Proceed to Checkout →
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+    <!-- =====================================================
+         CART JAVASCRIPT
+    ====================================================== -->
+
+  <script>
+
+let cart = JSON.parse(
+    localStorage.getItem("foodieCart") || "[]"
+);
+
+const cartBox = document.getElementById("cart");
+const totalBox = document.getElementById("total");
+
+function renderCart() {
+
+    cartBox.innerHTML = "";
+
+    let total = 0;
+    const deliveryFee = 60;
+
+    if (cart.length === 0) {
+
+        cartBox.innerHTML = `
+            <div class="empty-cart">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <h3>Your cart is empty</h3>
+
+                <p>
+                    Add some delicious food to your cart.
+                </p>
+
+                <a href="index.html#menu" class="btn">
+                    Explore Menu
+                </a>
+
+            </div>
+        `;
+
+        if (totalBox) {
+            totalBox.textContent = "Total: ৳0";
+        }
+
+        const subtotal = document.getElementById("subtotal");
+        const grandTotal = document.getElementById("grandTotal");
+
+        if (subtotal) {
+            subtotal.textContent = "৳0";
+        }
+
+        if (grandTotal) {
+            grandTotal.textContent = "৳60";
+        }
+
+        return;
+    }
+
+    cart.forEach((item, index) => {
+
+        let itemTotal = item.price * item.qty;
+
+        total += itemTotal;
+
+        cartBox.innerHTML += `
+            <div class="cart-item">
+
+                <div class="cart-item-info">
+                    <span class="cart-item-name">
+                        ${item.icon} ${item.name}
+                    </span>
+                </div>
+
+                <div class="quantity-controls">
+
+                    <button
+                        type="button"
+                        class="qty-btn"
+                        onclick="decreaseQty(${index})">
+                        -
+                    </button>
+
+                    <strong class="item-quantity">
+                        ${item.qty}
+                    </strong>
+
+                    <button
+                        type="button"
+                        class="qty-btn"
+                        onclick="increaseQty(${index})">
+                        +
+                    </button>
+
+                </div>
+
+                <strong class="item-price">
+                    ৳${itemTotal}
+                </strong>
+
+                <button
+                    type="button"
+                    class="remove-btn"
+                    onclick="removeItem(${index})">
+
+                    <i class="fa-solid fa-trash"></i>
+                    Remove
+
+                </button>
+
+            </div>
+        `;
+    });
+
+    if (totalBox) {
+        totalBox.textContent = "Total: ৳" + total;
+    }
+
+    const subtotal = document.getElementById("subtotal");
+    const grandTotal = document.getElementById("grandTotal");
+
+    if (subtotal) {
+        subtotal.textContent = "৳" + total;
+    }
+
+    if (grandTotal) {
+        grandTotal.textContent = "৳" + (total + deliveryFee);
+    }
+}
+
+function increaseQty(index) {
+
+    cart[index].qty++;
+
+    saveCart();
+}
+
+function decreaseQty(index) {
+
+    if (cart[index].qty > 1) {
+        cart[index].qty--;
+    } else {
+        cart.splice(index, 1);
+    }
+
+    saveCart();
+}
+
+function removeItem(index) {
+
+    cart.splice(index, 1);
+
+    saveCart();
+}
+
+function saveCart() {
+
+    localStorage.setItem(
+        "foodieCart",
+        JSON.stringify(cart)
+    );
+
+    renderCart();
+}
+
+renderCart();
+
+</script>
+
+</body>
+
+</html>

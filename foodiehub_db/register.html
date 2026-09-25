@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =====================================================
+         BASIC META INFORMATION
+    ====================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+
+    <!-- =====================================================
+         PAGE TITLE
+    ====================================================== -->
+
+    <title>Register | FoodieHub</title>
+
+
+    <!-- =====================================================
+         MAIN STYLESHEET
+    ====================================================== -->
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <!-- =====================================================
+         FONT AWESOME ICONS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER / NAVIGATION
+    ====================================================== -->
+
+    <header class="header">
+
+        <!-- LOGO -->
+
+        <a href="index.html" class="logo">
+
+            <i class="fa-solid fa-utensils"></i>
+
+            Foodie<span>Hub</span>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#menu">
+                Menu
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+
+            <!-- CART -->
+
+            <a href="cart.html" class="cart-link">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                Cart
+
+                <b id="cartCount">0</b>
+
+            </a>
+
+
+            <!-- SIGN IN -->
+
+            <a href="login.html" class="auth-sign-in">
+                Sign in
+            </a>
+
+
+            <!-- SIGN UP -->
+
+            <a href="register.html" class="auth-sign-up">
+                Sign up
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         REGISTRATION FORM
+    ====================================================== -->
+
+    <main class="form-page">
+
+
+        <form
+            class="form-box"
+            action="register.php"
+            method="POST">
+
+
+            <!-- FORM TITLE -->
+
+            <h2>
+                Create Account
+            </h2>
+
+
+            <!-- FULL NAME -->
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Full name"
+                autocomplete="name"
+                required>
+
+
+            <!-- EMAIL -->
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email address"
+                autocomplete="email"
+                required>
+
+
+            <!-- MOBILE NUMBER -->
+
+            <input
+                type="tel"
+                name="mobile"
+                placeholder="Mobile number"
+                autocomplete="tel"
+                required>
+
+
+            <!-- DELIVERY ADDRESS -->
+
+            <textarea
+                name="address"
+                placeholder="Delivery address"
+                autocomplete="street-address"
+                required></textarea>
+
+
+            <!-- PASSWORD -->
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                autocomplete="new-password"
+                minlength="6"
+                required>
+
+
+            <!-- REGISTER BUTTON -->
+
+            <button
+                type="submit"
+                class="btn">
+
+                <i class="fa-solid fa-user-plus"></i>
+
+                Register
+
+            </button>
+
+
+            <!-- LOGIN REDIRECT -->
+
+            <p class="form-footer">
+
+                Already have an account?
+
+                <a
+                    href="login.html"
+                    class="form-link">
+
+                    Sign in
+
+                </a>
+
+            </p>
+
+        </form>
+
+    </main>
+
+    
+        <footer>
+
+            <div class="footer-content">
+
+                <!-- FOOTER BRAND -->
+
+                <div class="footer-brand">
+
+                    <a
+                        href="index.html"
+                        class="logo">
+
+                        <i class="fa-solid fa-utensils"></i>
+
+                        Foodie<span>Hub</span>
+
+                    </a>
+
+                    <p>
+                        Delicious food, delivered with care.
+                    </p>
+
+                    <div class="social-links">
+
+                        <a
+                            href="https://www.facebook.com/mahfujur.r.04"
+                            aria-label="Facebook">
+
+                            <i class="fa-brands fa-facebook-f"></i>
+
+                        </a>
+
+                        <a
+                            href="https://www.instagram.com/mahfujur.r.04"
+                            aria-label="Instagram">
+
+                            <i class="fa-brands fa-instagram"></i>
+
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/in/mahfujur-r/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="LinkedIn">
+
+                            <i class="fa-brands fa-linkedin-in"></i>
+
+                        </a>
+
+                        <a
+                            href="https://www.youtube.com/@mahfuzexplore"
+                            aria-label="YouTube">
+
+                            <i class="fa-brands fa-youtube"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- QUICK LINKS -->
+
+                <div class="footer-links">
+
+                    <h3>
+                        Quick Links
+                    </h3>
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="#menu">
+                        Menu
+                    </a>
+
+                    <a href="#about">
+                        About
+                    </a>
+
+                    <a href="#contact">
+                        Contact
+                    </a>
+
+                    <a href="cart.html">
+                        Cart
+                    </a>
+
+                </div>
+
+                <!-- ACCOUNT -->
+
+                <div class="footer-links">
+
+                    <h3>
+                        Account
+                    </h3>
+
+                    <a href="profile.php">
+                        Profile
+                    </a>
+
+                    <a href="my_orders.php">
+                        My Orders
+                    </a>
+
+                    <a href="logout.php">
+                        Logout
+                    </a>
+
+                </div>
+
+                <!-- FOOTER CONTACT -->
+
+                <div class="footer-contact">
+
+                    <h3>
+                        Contact
+                    </h3>
+
+                    <p>
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        Sylhet, Bangladesh
+
+                    </p>
+
+                    <p>
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        +880 17XX-XXXXXX
+
+                    </p>
+
+                    <p>
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        mahfuz@foodiehub.com
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- FOOTER BOTTOM -->
+
+            <div class="footer-bottom">
+
+                <p>
+
+                    © 2026 FoodieHub.
+                    All rights reserved.
+
+                </p>
+
+                <p>
+                    Designed & Developed with by Mahfujur Rahman
+                </p>
+
+            </div>
+
+        </footer>
+
+
+</body>
+
+</html>

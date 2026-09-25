@@ -1,0 +1,671 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menu | FoodieHub</title>
+
+
+    <!-- Google Fonts -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- Main CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+
+        <i class="fa-solid fa-utensils"></i>
+
+        Foodie<span>Hub</span>
+
+    </a>
+
+
+    <nav>
+
+
+        <a href="index.html">
+            Home
+        </a>
+
+
+        <a href="menu.html" class="active">
+            Menu
+        </a>
+
+
+        <a href="my_orders.php">
+            My Orders
+        </a>
+
+
+        <a href="cart.html" class="cart-link">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            Cart
+
+            <b id="cartCount">0</b>
+
+        </a>
+
+
+        <!-- =========================
+             PROFILE MENU
+        ========================= -->
+
+        <div class="profile-menu">
+
+            <button
+                type="button"
+                class="profile-icon"
+                onclick="toggleProfileMenu()"
+                aria-label="Open profile menu"
+            >
+
+                <i class="fa-solid fa-user"></i>
+
+            </button>
+
+
+            <div
+                class="profile-dropdown"
+                id="profileDropdown"
+            >
+
+
+                <a href="index.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>Home</span>
+
+                </a>
+
+
+                <a href="profile.php">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    <span>Profile</span>
+
+                </a>
+
+
+                <a href="my_orders.php">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span>My Orders</span>
+
+                </a>
+
+
+                <a href="logout.php">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    <span>Logout</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================
+     PAGE BANNER
+========================= -->
+
+<section class="page-banner">
+
+    <div class="container">
+
+        <p class="eyebrow">
+
+            <i class="fa-solid fa-utensils"></i>
+
+            FRESHLY PREPARED FOR YOU
+
+        </p>
+
+
+        <h1>
+
+            Our <span>Menu</span>
+
+        </h1>
+
+
+        <p>
+
+            Choose from our delicious collection of
+            freshly prepared meals and refreshing drinks.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<main class="section">
+
+    <div class="container">
+
+
+        <!-- =========================
+             MENU HEADER
+        ========================= -->
+
+        <div class="section-heading">
+
+            <div>
+
+                <p class="eyebrow">
+                    WHAT ARE YOU CRAVING?
+                </p>
+
+
+                <h2>
+
+                    Find your favourite
+                    <span>food</span>
+
+                </h2>
+
+            </div>
+
+
+            <a href="cart.html" class="text-link">
+
+                View Cart
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- =========================
+             MENU TOOLS
+        ========================= -->
+
+        <div class="menu-tools">
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    id="searchInput"
+                    type="search"
+                    placeholder="Search your favourite food..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+
+            <!-- CATEGORY -->
+
+            <div class="category-select">
+
+                <i class="fa-solid fa-filter"></i>
+
+                <select id="categoryFilter">
+
+                    <option value="All">
+                        All Categories
+                    </option>
+
+                    <option value="Burgers">
+                        Burgers
+                    </option>
+
+                    <option value="Pizza">
+                        Pizza
+                    </option>
+
+                    <option value="Rice">
+                        Rice
+                    </option>
+
+                    <option value="Drinks">
+                        Drinks
+                    </option>
+
+                    <option value="Desserts">
+                        Desserts
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             CATEGORY BUTTONS
+        ========================= -->
+
+        <div class="menu-categories">
+
+
+            <button
+                class="menu-category active"
+                data-category="All"
+            >
+
+                <span>🍽️</span>
+
+                All
+
+            </button>
+
+
+            <button
+                class="menu-category"
+                data-category="Burgers"
+            >
+
+                <span>🍔</span>
+
+                Burgers
+
+            </button>
+
+
+            <button
+                class="menu-category"
+                data-category="Pizza"
+            >
+
+                <span>🍕</span>
+
+                Pizza
+
+            </button>
+
+
+            <button
+                class="menu-category"
+                data-category="Rice"
+            >
+
+                <span>🍛</span>
+
+                Rice
+
+            </button>
+
+
+            <button
+                class="menu-category"
+                data-category="Drinks"
+            >
+
+                <span>🥤</span>
+
+                Drinks
+
+            </button>
+
+
+            <button
+                class="menu-category"
+                data-category="Desserts"
+            >
+
+                <span>🍰</span>
+
+                Desserts
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             FOOD GRID
+        ========================= -->
+
+        <div
+            class="food-grid"
+            id="menuFoods"
+        ></div>
+
+
+
+        <!-- =========================
+             NO RESULT
+        ========================= -->
+
+        <div
+            id="noFood"
+            class="no-food"
+            style="display:none;"
+        >
+
+            <i class="fa-solid fa-face-sad-tear"></i>
+
+
+            <h3>
+                No food found
+            </h3>
+
+
+            <p>
+                Try another food name or category.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+
+    <div class="footer-content">
+
+
+        <!-- BRAND -->
+
+        <div class="footer-brand">
+
+            <a href="index.html" class="logo">
+
+                <i class="fa-solid fa-utensils"></i>
+
+                Foodie<span>Hub</span>
+
+            </a>
+
+
+            <p>
+                Delicious food, delivered with care.
+            </p>
+
+
+            <div class="social-links">
+
+                <a href="#">
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                </a>
+
+
+                <a href="#">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                </a>
+
+
+                <a href="#">
+
+                    <i class="fa-brands fa-x-twitter"></i>
+
+                </a>
+
+
+                <a href="#">
+
+                    <i class="fa-brands fa-youtube"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- QUICK LINKS -->
+
+        <div class="footer-links">
+
+            <h3>
+                Quick Links
+            </h3>
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="menu.html">
+                Menu
+            </a>
+
+
+            <a href="my_orders.php">
+                My Orders
+            </a>
+
+
+            <a href="cart.html">
+                Cart
+            </a>
+
+        </div>
+
+
+
+        <!-- ACCOUNT -->
+
+        <div class="footer-links">
+
+            <h3>
+                Account
+            </h3>
+
+
+            <a href="profile.php">
+                Profile
+            </a>
+
+
+            <a href="my_orders.php">
+                My Orders
+            </a>
+
+
+            <a href="logout.php">
+                Logout
+            </a>
+
+        </div>
+
+
+
+        <!-- CONTACT -->
+
+        <div class="footer-contact">
+
+            <h3>
+                Contact
+            </h3>
+
+
+            <p>
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                Sylhet, Bangladesh
+
+            </p>
+
+
+            <p>
+
+                <i class="fa-solid fa-phone"></i>
+
+                +880 1XXX-XXXXXX
+
+            </p>
+
+
+            <p>
+
+                <i class="fa-solid fa-envelope"></i>
+
+                hello@foodiehub.com
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- FOOTER BOTTOM -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 FoodieHub. All rights reserved.
+        </p>
+
+
+        <p>
+            Online Food Ordering System
+        </p>
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =========================
+     TOAST
+========================= -->
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script src="script.js"></script>
+
+<script src="menu.js"></script>
+
+
+
+<!-- =========================
+     PROFILE DROPDOWN
+========================= -->
+
+<script>
+
+function toggleProfileMenu() {
+
+    const dropdown =
+        document.getElementById("profileDropdown");
+
+    if (!dropdown) {
+        return;
+    }
+
+    dropdown.classList.toggle("show");
+
+}
+
+
+window.addEventListener("click", function(event) {
+
+    if (!event.target.closest(".profile-menu")) {
+
+        const dropdown =
+            document.getElementById("profileDropdown");
+
+        if (dropdown) {
+
+            dropdown.classList.remove("show");
+
+        }
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>
+
